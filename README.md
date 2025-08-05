@@ -1,3 +1,56 @@
+1. Clone the project from the provided Git repository.
+
+        Install Dependencies & Start the Application
+		
+        Navigate to the project directory in your terminal and run the following commands:
+
+             npm install
+             npm run-script start
+
+2. After executing the above commands, you'll see a URL like http://localhost:8080 in the terminal.
+
+        Press Ctrl + Click on the URL to open it in your browser.
+        
+		On the landing page, click on index.html to launch the application.
+
+        Note:
+
+            Deployment to Docker and the Kyma environment is currently skipped for this setup.
+
+3. Create HANA Database Table
+
+        Create the following table in your SAP HANA database:
+
+            CREATE COLUMN TABLE "DBADMIN"."Z_USERGROUP" (
+                    "USERID" NVARCHAR(200) NOT NULL,
+                    "DESCRIPTION" NVARCHAR(200) NOT NULL,
+                    "PERSONALID" NVARCHAR(300) NOT NULL,
+                    PRIMARY KEY ("USERID")
+                );
+				
+4. Set Up Custom Node.js API
+
+        To perform CRUD operations, create a custom Node.js backend to connect with your HANA DB and handle the operations.
+
+        Update API Endpoints
+
+        Replace the sample API endpoints in the UI with your actual backend endpoints:
+
+                    Operation	     Sample Endpoint	  Replace With
+					
+                    Insert/Update	/api/v1/user/add	/api/insert/userDetails
+					
+                    Read	        /api/v1/users	    /api/get/userDetails
+					
+                    Delete	       /api/v1/user/delete/	/api/delete/userDetails
+
+5. Reference Folder
+
+        Check the CustomNodeJSAPIs folder in the project root for example implementations of these API endpoints.
+
+
+
+
 ## Overview
 
 This sample provides a frontend SAPUI5 application that you can configure with any of the sample `Order` APIs.
